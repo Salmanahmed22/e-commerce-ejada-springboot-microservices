@@ -1,0 +1,29 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+POST http://localhost:8080/api/product/add
+Content-Type: application/json
+
+{
+  "name": "Hardcover Lined Notebook",
+  "description": "200 pages of premium-quality paper bound in a stylish hardcover, ideal for journaling or note-taking.",
+  "price": 8.50,
+  "category": "Stationery",
+  "imageUrl": "https://example.com/images/products/notebook.jpg"
+}
+
+###
+GET http://localhost:8080/api/product
+
+###
+DELETE http://localhost:8080/api/product/1
+
+###
+PUT http://localhost:8080/api/product/3
+Content-Type: application/json
+
+{
+  "price": 10.0
+}
