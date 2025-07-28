@@ -25,5 +25,33 @@ PUT http://localhost:8080/api/product/3
 Content-Type: application/json
 
 {
-  "price": 10.0
+  "price": 100.0
 }
+
+###
+POST http://localhost:8080/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "productId": 2,
+  "quantity": 4
+}
+//{
+//  "userId": 1,
+//  "productId": 3,
+//  "quantity": 2
+//}
+
+
+###update cart item quantity
+PUT http://localhost:8080/api/cart/update
+Content-Type: application/json
+
+{
+  "cartItemId": 1,
+  "quantity": 8
+}
+
+### remove item from cart
+DELETE http://localhost:8080/api/cart/remove/2
