@@ -17,7 +17,7 @@ public class WalletController {
         return walletService.create(userId);
     }
     @PutMapping("addMoney/{walletId}")
-    public ResponseEntity<Wallet> addMoney(@PathVariable("walletId") Integer walletId, @RequestBody Integer money) {
+    public ResponseEntity<Wallet> addMoney(@PathVariable("walletId") Integer walletId, @RequestBody double money) {
         return walletService.addMoney(walletId,money);
     }
 
