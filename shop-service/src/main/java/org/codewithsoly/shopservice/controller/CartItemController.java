@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "api/cart")
 public class CartItemController {
@@ -25,7 +27,13 @@ public class CartItemController {
         return cartItemService.updateCartItem(cartItemUpdateDto);
     }
     @DeleteMapping("remove/{id}")
-    public ResponseEntity<String> removeCartItem(@PathVariable("id") Integer cartItemID) {
+    public ResponseEntity<String> removeCartItem(
+            @PathVariable("id") Integer cartItemID) {
         return cartItemService.removeCartItem(cartItemID);
+    }
+    @GetMapping({"{userId}"})
+    public ResponseEntity<List<CartItem>> getCartItems(
+            @PathVariable("userId") Integer userId) {
+        return cartItemService.getCartItems(userId);
     }
 }

@@ -1,5 +1,6 @@
 package org.codewithsoly.shopservice.service;
 
+import jakarta.transaction.Transactional;
 import org.codewithsoly.shopservice.dto.CartItemDto;
 import org.codewithsoly.shopservice.dto.CartItemUpdateDto;
 import org.codewithsoly.shopservice.model.CartItem;
@@ -9,6 +10,8 @@ import org.codewithsoly.shopservice.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CartItemService {
@@ -34,5 +37,15 @@ public class CartItemService {
     public ResponseEntity<String> removeCartItem(Integer cartItemId) {
         cartRepo.deleteById(cartItemId);
         return ResponseEntity.ok("item is removed successfully");
+    }
+
+    public ResponseEntity<List<CartItem>> getCartItems(Integer userId) {
+        List<CartItem> userCartItems = cartRepo.findByUserId(userId);
+        return ResponseEntity.ok(userCartItems);
+    }
+    @Transactional
+    public void deleteCart(Integer userId) {
+        System.out.println("alooo deletee " + userId);
+        cartRepo.deleteByUserId(userId);
     }
 }

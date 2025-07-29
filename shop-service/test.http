@@ -35,7 +35,7 @@ Content-Type: application/json
 {
   "userId": 1,
   "productId": 2,
-  "quantity": 4
+  "quantity": 5
 }
 //{
 //  "userId": 1,
@@ -54,4 +54,12 @@ Content-Type: application/json
 }
 
 ### remove item from cart
-DELETE http://localhost:8080/api/cart/remove/2
+DELETE http://localhost:8080/api/cart/remove/3
+
+### get all user cart items
+GET http://localhost:8080/api/cart/1
+
+### place order using cart items
+GET http://localhost:8080/api/order/make/1
+###
+GET http://localhost:8080/api/order/1

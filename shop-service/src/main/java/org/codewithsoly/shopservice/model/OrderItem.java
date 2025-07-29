@@ -13,11 +13,8 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
     private Integer productId;
     private Integer quantity;
-    private Double price;
+    private Double priceAtPurchase;
+    private String productName;
 }

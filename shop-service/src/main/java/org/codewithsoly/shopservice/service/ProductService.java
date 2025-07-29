@@ -45,4 +45,7 @@ public class ProductService {
         productRepo.save(product);
         return ResponseEntity.ok("Product updated");
     }
+    public Product getProduct(Integer productId) {
+        return productRepo.findById(productId).orElseThrow(()-> new EntityNotFoundException("Product not found"));
+    }
 }
