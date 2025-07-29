@@ -1,0 +1,7 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+POST http://localhost:8082/api/wallet/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsInN1YiI6IjQiLCJpYXQiOjE3NTM3OTI5MTgsImV4cCI6MTc1MzgyODkxOH0.d0QretkIWW6LZTCzonAqrFEKSXWtpQvNy6n-E6tGMYc

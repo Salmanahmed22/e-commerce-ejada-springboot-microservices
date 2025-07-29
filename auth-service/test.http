@@ -7,9 +7,9 @@ POST localhost:8084/api/user/register
 Content-Type: application/json
 
 {
-  "name": "zozz",
-  "email": "zozz@gmail.com",
-  "password": "123salman",
+  "name": "adam",
+  "email": "adam@gmail.com",
+  "password": "12345",
   "role": "USER"
 }
 
