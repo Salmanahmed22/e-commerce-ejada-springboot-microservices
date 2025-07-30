@@ -63,3 +63,6 @@ GET http://localhost:8080/api/cart/1
 GET http://localhost:8080/api/order/make/1
 ###
 GET http://localhost:8080/api/order/1
+
+### purchase order
+POST http://localhost:8080/api/order/purchase/1

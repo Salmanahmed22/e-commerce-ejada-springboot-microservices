@@ -16,7 +16,7 @@ public class WalletService {
     @Autowired
     private TransactionService transactionService;
     public ResponseEntity<String> create(Integer userId) {
-        if (walletRepo.findByUserId(userId)) {
+        if (walletRepo.findByUserId(userId) != null) {
             return ResponseEntity.badRequest().body(null); // already exists
         }
 
@@ -40,5 +40,23 @@ public class WalletService {
         newTransaction.setDescription(money + " is added to your wallet");
         transactionService.createTransaction(newTransaction);
         return ResponseEntity.ok(wallet);
+    }
+
+    public ResponseEntity<Double> getUserWalletBalance(Integer userId) {
+        Wallet wallet = walletRepo.findByUserId(userId);
+        return ResponseEntity.ok(wallet.getBalance());
+    }
+
+    public ResponseEntity<String  > updateBalance(Integer userId, double amount) {
+        Wallet wallet = walletRepo.findByUserId(userId);
+        wallet.setBalance(wallet.getBalance() - amount);
+        walletRepo.save(wallet);
+        Transaction newTransaction = new Transaction();
+        newTransaction.setWallet(wallet);
+        newTransaction.setAmount(amount);
+        newTransaction.setType(TransactionType.PURCHASE);
+        newTransaction.setDescription(amount + "$ is purchased");
+        transactionService.createTransaction(newTransaction);
+        return ResponseEntity.ok("wallet updated");
     }
 }

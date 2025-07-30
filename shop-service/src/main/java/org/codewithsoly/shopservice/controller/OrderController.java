@@ -21,5 +21,10 @@ public class OrderController {
     public ResponseEntity<List<Order>> getUserOrders(@PathVariable("userId") Integer userId) {
         return orderService.getUserOrders(userId);
     }
+    @PostMapping("purchase/{orderId}")
+    public ResponseEntity<String> purchaseOrder(
+            @PathVariable("orderId") Integer orderId) {
+        return orderService.purchaseOrder(orderId);
+    }
 
 }

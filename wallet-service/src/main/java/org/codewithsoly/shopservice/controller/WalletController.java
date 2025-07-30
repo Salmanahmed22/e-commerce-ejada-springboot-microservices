@@ -17,8 +17,18 @@ public class WalletController {
         return walletService.create(userId);
     }
     @PutMapping("addMoney/{walletId}")
-    public ResponseEntity<Wallet> addMoney(@PathVariable("walletId") Integer walletId, @RequestBody double money) {
+    public ResponseEntity<Wallet> addMoney(
+            @PathVariable("walletId") Integer walletId, @RequestBody double money) {
         return walletService.addMoney(walletId,money);
     }
 
+    @PostMapping("update/balance/{userId}")
+    public ResponseEntity<String> updateBalance(
+            @PathVariable("userId") Integer userId, @RequestBody double amount) {
+        return walletService.updateBalance(userId,amount);
+    }
+    @GetMapping("{userId}")
+    public ResponseEntity<Double> getUserWalletBalance(@PathVariable Integer userId) {
+        return walletService.getUserWalletBalance(userId);
+    }
 }

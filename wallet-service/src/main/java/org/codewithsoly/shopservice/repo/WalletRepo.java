@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WalletRepo extends JpaRepository<Wallet, Integer> {
-    boolean findByUserId(Integer userId);
+    Wallet findByUserId(Integer userId);
 }
